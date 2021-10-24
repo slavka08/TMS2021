@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">BabyHelper</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- WEATHER -->
+    <string name="wind_speed">Wind: %.2f m/s</string>
+    <string name="humidity">Humidity: %d%s</string>
+    <string name="percent">%</string>
+    <string name="temp">Temperature: %.1f °C</string>
+    <string name="select_city">Select city:</string>
+    <string name="forecast_weather_for_5_days">Forecast weather for 5 days</string>
+    <string name="error">Error: %s</string>
+    <string-array name="cities">
+        <item>Lviv</item>
+        <item>Brest</item>
+        <item>Warsaw</item>
+    </string-array>
+</resources>
