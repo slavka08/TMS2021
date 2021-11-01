@@ -42,7 +42,7 @@
         style="@style/MainStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/volumeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textInputTimerRLayout"
         tools:layout_editor_absoluteX="14dp">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputInfoLayout">
+        app:layout_constraintTop_toBottomOf="@+id/volumeLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/timerL"
@@ -137,7 +137,7 @@
         android:id="@+id/buttonOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ok"
+        android:text="@string/ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonCancel"
         app:layout_constraintHorizontal_bias="0.5"
@@ -147,7 +147,7 @@
         android:id="@+id/buttonCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Отмена"
+        android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

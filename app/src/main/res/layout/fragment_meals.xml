@@ -9,68 +9,35 @@
         android:id="@+id/fabAddMeal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/green"
         android:clickable="true"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/green"
-        android:layout_margin="20dp"
-        android:elevation="10dp"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/meals"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/margin_l"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/DayInfoMeals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/dateSelector"
-        app:layout_constraintStart_toStartOf="parent"
+        android:padding="@dimen/margin_s"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="@dimen/margin_s">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateSelector">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/time_right"
-            app:layout_constraintBottom_toBottomOf="@+id/chart"
-            app:layout_constraintStart_toEndOf="@+id/chart"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/breast_feeding_unif"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textViewBreastFeedInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_12"
-            android:text="@string/breast_feeding_helper"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chart" />
-
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/chart"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/time_left"
-            app:layout_constraintBottom_toBottomOf="@+id/chart"
-            app:layout_constraintEnd_toStartOf="@+id/chart"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
             android:layout_width="match_parent"
@@ -78,7 +45,67 @@
             android:layout_margin="@dimen/margin_s"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="@dimen/def_corner_radius"
+            android:backgroundTint="@color/light_gray_info">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/DayInfoMealsL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_s"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dateSelector">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time_right"
+                    app:layout_constraintBottom_toBottomOf="@+id/chart"
+                    app:layout_constraintStart_toEndOf="@+id/chart"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/breast_feeding_unif"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewBreastFeedInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/breast_feeding_helper"
+                    android:textSize="@dimen/text_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chart" />
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/chart"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time_left"
+                    app:layout_constraintBottom_toBottomOf="@+id/chart"
+                    app:layout_constraintEnd_toStartOf="@+id/chart"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -101,8 +128,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/margin_l">
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
         <TextView
             android:id="@+id/textViewCurrentDate"

@@ -38,6 +38,10 @@ class MealsViewModel @Inject constructor(
         getMeals()
     }
 
+    fun deleteById(id: Int) {
+        dbRepository.deleteMealById(id)
+    }
+
     fun getMeals() {
         disposable.add(
             dbRepository.getMealsByDate(_calendar.toDayOnlyDate())

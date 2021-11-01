@@ -15,7 +15,10 @@ import by.slavintodron.babyhelper.entity.MealType
 import by.slavintodron.babyhelper.utils.convertLongToTime
 import by.slavintodron.babyhelper.utils.displayTime
 
-class MealsAdapter : ListAdapter<MealEntity, MealsAdapter.EntriesViewHolder>(DIFF) {
+class MealsAdapter(
+    private val editCallback: (Id: Int) -> Unit,
+    private val deleteCallback: (Id: Int) -> Unit
+) : ListAdapter<MealEntity, MealsAdapter.EntriesViewHolder>(DIFF) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EntriesViewHolder {
         return EntriesViewHolder(MealItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -49,7 +52,10 @@ class MealsAdapter : ListAdapter<MealEntity, MealsAdapter.EntriesViewHolder>(DIF
             binder.textViewInfo.text = data.meal.info
             binder.tvMealVolumeUnit.text = data.meal.measUnit.name.toLowerCase()
             binder.imageMealType.setImageDrawable(
-            ResourcesCompat.getDrawable(binder.root.resources, data.meal.type.imgResId, null))
+                ResourcesCompat.getDrawable(binder.root.resources, data.meal.type.imgResId, null)
+            )
+            binder.ivDelete.setOnClickListener { data.id?.let { deleteCallback.invoke(it) } }
+            binder.ivEdit.setOnClickListener { data.id?.let { editCallback.invoke(it) } }
         }
     }
 
