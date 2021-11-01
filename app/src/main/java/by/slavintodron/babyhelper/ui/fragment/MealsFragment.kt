@@ -31,7 +31,7 @@ class MealsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = MealsAdapter()
+        adapter = MealsAdapter({ navigateToEdit(it) }, { viewModel.deleteById(it) })
         binding.rvMeals.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMeals.adapter = adapter
         initObservers()
@@ -58,6 +58,10 @@ class MealsFragment : Fragment() {
         }
     }
 
+    private fun navigateToEdit(id: Int) {
+        NavHostFragment.findNavController(this).navigate(MealsFragmentDirections.actionMealsFragmentToMealsAddFragment(id))
+    }
+
     private fun dialog() {
         ChooseDialog.newInstance(object : ChooseDialogListener {
             override fun breastsFeeding() {
@@ -66,8 +70,7 @@ class MealsFragment : Fragment() {
             }
 
             override fun manualAdd() {
-                NavHostFragment.findNavController(this@MealsFragment)
-                    .navigate(MealsFragmentDirections.actionMealsFragmentToMealsAddFragment(0))
+                navigateToEdit(0)
             }
         }).show(childFragmentManager, ChooseDialog.TAG)
     }

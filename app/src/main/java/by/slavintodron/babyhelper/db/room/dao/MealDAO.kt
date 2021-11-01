@@ -23,6 +23,9 @@ interface MealDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertWorkOut(meal: MealEntity): Completable
 
+    @Query("DELETE FROM $MEALS_TABLE WHERE id = :recordId")
+    fun deleteByUserId(recordId: Int): Completable
+
     companion object {
         const val MEAL_TABLE_ID_FIELD = "id"
         const val APP_DATABASE = "slavintodronbabyhelper"

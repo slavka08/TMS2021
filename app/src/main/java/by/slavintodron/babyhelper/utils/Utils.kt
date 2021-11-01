@@ -41,7 +41,7 @@ fun GregorianCalendar.toDayOnlyDate(): Long {
 
 fun convertLongToDate(time: Long): String {
     val date = Date(time)
-    val format = SimpleDateFormat("yyyy.MM.dd")
+    val format = SimpleDateFormat("EEEE, MMM dd")//("yyyy.MM.dd")
     return format.format(date)
 }
 

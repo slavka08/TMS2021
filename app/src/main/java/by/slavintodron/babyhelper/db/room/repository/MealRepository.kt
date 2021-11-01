@@ -9,4 +9,5 @@ interface MealRepository {
     fun getMealsByDate(date: Long): Flowable<List<MealEntity>>
     fun getLastMeal(): Flowable<MealEntity>
     fun getAllMeals(): Flowable<List<MealEntity>>
+    fun deleteMealById(id: Int)
 }

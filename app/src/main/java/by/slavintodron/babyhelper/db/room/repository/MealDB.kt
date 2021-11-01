@@ -29,6 +29,14 @@ class MealDB @Inject constructor(private val workoutDao: MealDAO) : MealReposito
 
     override fun getAllMeals(): Flowable<List<MealEntity>> = workoutDao.getAllWorkouts()
 
+    override fun deleteMealById(id: Int) {
+        workoutDao.deleteByUserId(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({},{})
+            .add()
+    }
+
     private fun Disposable.add() {
         disposable.add(this)
     }

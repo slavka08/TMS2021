@@ -56,4 +56,7 @@
 
     <string name="breast_feeding_unif">Breast Feeding Uniformity</string>
     <string name="breast_feeding_helper">Better if the values are equally distributed</string>
+    <string name="meals">MEALS</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
 </resources>

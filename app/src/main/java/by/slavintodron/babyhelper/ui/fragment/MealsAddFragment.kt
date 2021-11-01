@@ -65,15 +65,25 @@ class MealsAddFragment : Fragment() {
         setOnClickListeners()
     }
 
+
     private fun initObservers() {
-        viewModel.mealData.observe(viewLifecycleOwner) {
-            setDataToFragment(volume = it.meal.volume, info = it.meal.info, type = it.meal.type)
-        }
+        viewModel.mealData.observe(viewLifecycleOwner) { setDataToFragment(it) }
     }
 
-    private fun setDataToFragment(info: String, volume: Float, type: MealType) {
-        binding.tiVolume.setText(volume.toString())
-        binding.tiInfo.setText(info)
+    private fun setDataToFragment(meal: MealEntity) {
+        if (meal.meal.timerLeft > 0 || meal.meal.timerRight > 0) {
+            binding.textInputTimerLLayout.visibility = View.VISIBLE
+            binding.textInputTimerRLayout.visibility = View.VISIBLE
+            binding.volumeLayout.visibility = View.GONE
+        } else {
+            binding.volumeLayout.visibility = View.VISIBLE
+            binding.textInputTimerLLayout.visibility = View.GONE
+            binding.textInputTimerRLayout.visibility = View.GONE
+        }
+        binding.tiVolume.setText(meal.meal.volume.toString())
+        binding.tiInfo.setText(meal.meal.info)
+        binding.timerR.setText(meal.meal.timerRight.displayTime().dropLast(3))
+        binding.timerL.setText(meal.meal.timerLeft.displayTime().dropLast(3))
     }
 
     private fun loadMealForEdit(mealId: Int) {
