@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dialogItemBg">#48484A</color>
+    <color name="black_text_options">#FFFFFF</color>
+    <color name="light_gray_text">#FFFFFF</color>
+    <color name="dialogBg">#E2E2E6</color>
+</resources>

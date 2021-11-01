@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <DropDownPreference
+        android:key="chbCity"
+        android:title="City"
+        android:entries="@array/cities"
+        android:entryValues="@array/cities"
+        android:icon="@android:drawable/ic_menu_myplaces">
+    </DropDownPreference>
+</PreferenceScreen>
