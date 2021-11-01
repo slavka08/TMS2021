@@ -1,6 +1,6 @@
 # TMS2021
-Simple app for tack baby feeding and sleep
-Sleep functionality is not iplemented yet
+Simple app for tack baby feeding and sleep.
+(Sleep functionality is not iplemented yet)
 Used technologies:
 - Single activity
 - LiveData
