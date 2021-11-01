@@ -21,6 +21,16 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="12:15" />
 
+        <ImageView
+            android:id="@+id/imageMealType"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="@dimen/margin_s"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMealDate"
+            app:srcCompat="@drawable/ic_sleep" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bFeedValues"
             android:layout_width="match_parent"

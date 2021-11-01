@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.slavintodron.babyhelper.databinding.FragmentMealsBinding
+import by.slavintodron.babyhelper.entity.MealEntity
 import by.slavintodron.babyhelper.ui.adapter.MealsAdapter
 import by.slavintodron.babyhelper.ui.dialogs.ChooseDialog
 import by.slavintodron.babyhelper.ui.dialogs.ChooseDialogListener
@@ -37,7 +38,12 @@ class MealsFragment : Fragment() {
         loadMeals()
         setOnClickListeners()
         updateDateText()
-        ChartUtils.setChartDataCalories(binding.chart, 100f, 300f, requireContext())
+    }
+
+    private fun calcBreastFeed(list: List<MealEntity>) {
+        val l = list.map { it.meal.timerLeft }.sum()
+        val r = list.map { it.meal.timerRight }.sum()
+        ChartUtils.setChartDataCalories(binding.chart, l.toFloat(), r.toFloat(), requireContext())
     }
 
     private fun setOnClickListeners() {
@@ -77,6 +83,7 @@ class MealsFragment : Fragment() {
     private fun initObservers() {
         viewModel.meals.observe(viewLifecycleOwner) {
             adapter?.submitList(it)
+            calcBreastFeed(it)
         }
     }
 

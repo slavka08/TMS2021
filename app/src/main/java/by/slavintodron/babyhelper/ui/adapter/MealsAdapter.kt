@@ -4,16 +4,18 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import by.slavintodron.babyhelper.R
 import by.slavintodron.babyhelper.databinding.MealItemBinding
 import by.slavintodron.babyhelper.entity.MealEntity
 import by.slavintodron.babyhelper.entity.MealType
 import by.slavintodron.babyhelper.utils.convertLongToTime
 import by.slavintodron.babyhelper.utils.displayTime
 
-class MealsAdapter: ListAdapter<MealEntity, MealsAdapter.EntriesViewHolder>(DIFF) {
+class MealsAdapter : ListAdapter<MealEntity, MealsAdapter.EntriesViewHolder>(DIFF) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EntriesViewHolder {
         return EntriesViewHolder(MealItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -29,20 +31,30 @@ class MealsAdapter: ListAdapter<MealEntity, MealsAdapter.EntriesViewHolder>(DIFF
                 MealType.BREAST_FEEDING -> {
                     binder.bFeedValues.visibility = View.VISIBLE
                     binder.volumeContainer.visibility = View.GONE
-                    binder.tvMealLeftB.text = data.meal.timerLeft.displayTime().dropLast(3)
-                    binder.tvMealRightB.text = data.meal.timerRight.displayTime().dropLast(3)
+                    binder.tvMealLeftB.text = String.format(
+                        "%s %s",
+                        binder.root.resources.getString(R.string.left),
+                        data.meal.timerLeft.displayTime().dropLast(3)
+                    )
+                    binder.tvMealRightB.text = String.format(
+                        "%s %s",
+                        binder.root.resources.getString(R.string.right),
+                        data.meal.timerRight.displayTime().dropLast(3)
+                    )
                 }
             }
-            binder.tvMealType.text = data.meal.type.toString()
+            binder.tvMealType.text = binder.root.resources.getString(data.meal.type.textResId)
             binder.tvMealVolume.text = data.meal.volume.toString()
             binder.tvMealDate.text = convertLongToTime(data.dateTime)
             binder.textViewInfo.text = data.meal.info
             binder.tvMealVolumeUnit.text = data.meal.measUnit.name.toLowerCase()
+            binder.imageMealType.setImageDrawable(
+            ResourcesCompat.getDrawable(binder.root.resources, data.meal.type.imgResId, null))
         }
     }
 
     companion object {
-        val DIFF = object: DiffUtil.ItemCallback<MealEntity>() {
+        val DIFF = object : DiffUtil.ItemCallback<MealEntity>() {
             override fun areItemsTheSame(oldItem: MealEntity, newItem: MealEntity): Boolean {
                 return newItem == oldItem
             }
