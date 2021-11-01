@@ -2,13 +2,16 @@ package by.slavintodron.babyhelper.ui.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import by.slavintodron.babyhelper.databinding.MealItemBinding
 import by.slavintodron.babyhelper.entity.MealEntity
+import by.slavintodron.babyhelper.entity.MealType
 import by.slavintodron.babyhelper.utils.convertLongToTime
+import by.slavintodron.babyhelper.utils.displayTime
 
 class MealsAdapter: ListAdapter<MealEntity, MealsAdapter.EntriesViewHolder>(DIFF) {
 
@@ -22,6 +25,14 @@ class MealsAdapter: ListAdapter<MealEntity, MealsAdapter.EntriesViewHolder>(DIFF
 
     inner class EntriesViewHolder(private val binder: MealItemBinding) : RecyclerView.ViewHolder(binder.root) {
         fun onBind(data: MealEntity) {
+            when (data.meal.type) {
+                MealType.BREAST_FEEDING -> {
+                    binder.bFeedValues.visibility = View.VISIBLE
+                    binder.volumeContainer.visibility = View.GONE
+                    binder.tvMealLeftB.text = data.meal.timerLeft.displayTime().dropLast(3)
+                    binder.tvMealRightB.text = data.meal.timerRight.displayTime().dropLast(3)
+                }
+            }
             binder.tvMealType.text = data.meal.type.toString()
             binder.tvMealVolume.text = data.meal.volume.toString()
             binder.tvMealDate.text = convertLongToTime(data.dateTime)
