@@ -13,6 +13,7 @@ import by.slavintodron.babyhelper.ui.adapter.MealsAdapter
 import by.slavintodron.babyhelper.ui.dialogs.ChooseDialog
 import by.slavintodron.babyhelper.ui.dialogs.ChooseDialogListener
 import by.slavintodron.babyhelper.ui.viewModel.MealsViewModel
+import by.slavintodron.babyhelper.utils.ChartUtils
 import by.slavintodron.babyhelper.utils.convertLongToDate
 import java.util.*
 
@@ -36,6 +37,7 @@ class MealsFragment : Fragment() {
         loadMeals()
         setOnClickListeners()
         updateDateText()
+        ChartUtils.setChartDataCalories(binding.chart, 100f, 300f, requireContext())
     }
 
     private fun setOnClickListeners() {

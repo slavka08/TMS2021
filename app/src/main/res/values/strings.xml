@@ -53,4 +53,7 @@
     <string name="add_meal">Add Meal</string>
     <string name="start_feeding_timer">Start feeding timer</string>
     <string name="ads_block"><u>ads block</u></string>
+
+    <string name="breast_feeding_unif">Breast Feeding Uniformity</string>
+    <string name="breast_feeding_helper">Better if the values are equally distributed</string>
 </resources>
