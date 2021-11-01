@@ -14,11 +14,14 @@ interface MealDAO {
     @Query("SELECT * FROM $MEALS_TABLE WHERE id = :recordId")
     fun getById(recordId: Int): Flowable<MealEntity>
 
+    @Query("SELECT * FROM $MEALS_TABLE WHERE dateDay = :day")
+    fun getByDate(day: Long): Flowable<List<MealEntity>>
+
     @Query("SELECT * FROM $MEALS_TABLE ORDER BY $MEAL_TABLE_ID_FIELD DESC LIMIT 1")
     fun getLastMeal(): Flowable<MealEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWorkOut(workOut: MealEntity): Completable
+    fun insertWorkOut(meal: MealEntity): Completable
 
     companion object {
         const val MEAL_TABLE_ID_FIELD = "id"

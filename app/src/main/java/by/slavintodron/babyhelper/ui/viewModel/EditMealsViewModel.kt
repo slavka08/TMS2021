@@ -7,40 +7,42 @@ import by.slavintodron.babyhelper.di.module.MealDBRepository
 import by.slavintodron.babyhelper.entity.BabyMeal
 import by.slavintodron.babyhelper.entity.MealEntity
 import by.slavintodron.babyhelper.entity.MealType
-import by.slavintodron.babyhelper.utils.toDayOnlyDate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class MealsViewModel @Inject constructor(
+class EditMealsViewModel @Inject constructor(
     @MealDBRepository private val dbRepository: MealRepository
 ) : ViewModel() {
     private val disposable = CompositeDisposable()
-    private val _calendar = GregorianCalendar()
-    val calendar get() = _calendar
+    var timerL: Long = 0
+    var timerR: Long = 0
     var mealData = MutableLiveData<MealEntity>()
         private set
 
     var meals = MutableLiveData<List<MealEntity>>()
         private set
 
-    fun nextDate() {
-        _calendar.add(Calendar.DATE, 1)
-        getMeals()
+    fun insertDB(meal: MealEntity) {
+        dbRepository.insertMeal(meal)
     }
 
-    fun prevDate() {
-        _calendar.add(Calendar.DATE, -1)
-        getMeals()
+    fun getMeal(id: Int) {
+        disposable.add(dbRepository.getMeal(id).take(1)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ meal ->
+                mealData.postValue(meal)
+            }, {})
+        )
     }
 
-    fun getMeals() {
+    fun getAllMeals() {
         disposable.add(
-            dbRepository.getMealsByDate(_calendar.toDayOnlyDate())
+            dbRepository.getAllMeals().take(1)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ mealsData ->

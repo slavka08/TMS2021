@@ -1,3 +1,3 @@
 package by.slavintodron.babyhelper.entity
 
-data class BabyMeal(val date: String, val type: MealType, val volume: Float)
+data class BabyMeal(val timerLeft: Long, val timerRight: Long, val type: MealType, val measUnit: MeasureUnits,val volume: Float, val info: String)

@@ -12,8 +12,45 @@
     <string name="forecast_weather_for_5_days">Forecast weather for 5 days</string>
     <string name="error">Error: %s</string>
     <string-array name="cities">
+        <item>Minsk</item>
         <item>Lviv</item>
         <item>Brest</item>
         <item>Warsaw</item>
     </string-array>
+
+    <!-- MEAL -->
+    <string name="milk">Milk</string>
+    <string name="porridge">Porridge</string>
+    <string name="mixture">Mixture</string>
+    <string name="breast_feeding">breast-feeding</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="fruits">Fruits</string>
+
+    <!-- FEEDING SERVICE -->
+    <string name="service_feeding_title">Feeding</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="change">Change</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="current_weather"><u>Current weather</u></string>
+    <string name="last_meal"><u>Last Meal</u></string>
+    <string name="tap_for_more_info">Tap for more info</string>
+    <string name="info">Info</string>
+    <string name="time_left">Time Left</string>
+    <string name="time_right">Time Right</string>
+    <string name="volume">Volume</string>
+    <string name="meal_type">Meal Type</string>
+    <string name="unit_measure">Unit measure</string>
+    <string name="last_tour"><u>Last tour</u></string>
+    <string name="last_sleep"><u>Last sleep</u></string>
+    <string name="prev">Prev</string>
+    <string name="next">Next</string>
+    <string name="start_breast_feeding">Start Breast-Feeding</string>
+    <string name="fill_meal_manually">Fill meal manually</string>
+    <string name="add_meal">Add Meal</string>
+    <string name="start_feeding_timer">Start feeding timer</string>
+    <string name="ads_block"><u>ads block</u></string>
 </resources>

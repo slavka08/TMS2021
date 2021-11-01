@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import by.slavintodron.babyhelper.databinding.MealItemBinding
 import by.slavintodron.babyhelper.entity.MealEntity
+import by.slavintodron.babyhelper.utils.convertLongToTime
 
 class MealsAdapter: ListAdapter<MealEntity, MealsAdapter.EntriesViewHolder>(DIFF) {
 
@@ -21,9 +22,11 @@ class MealsAdapter: ListAdapter<MealEntity, MealsAdapter.EntriesViewHolder>(DIFF
 
     inner class EntriesViewHolder(private val binder: MealItemBinding) : RecyclerView.ViewHolder(binder.root) {
         fun onBind(data: MealEntity) {
-            binder.tvMealDate.text = data.meal.date
             binder.tvMealType.text = data.meal.type.toString()
             binder.tvMealVolume.text = data.meal.volume.toString()
+            binder.tvMealDate.text = convertLongToTime(data.dateTime)
+            binder.textViewInfo.text = data.meal.info
+            binder.tvMealVolumeUnit.text = data.meal.measUnit.name.toLowerCase()
         }
     }
 

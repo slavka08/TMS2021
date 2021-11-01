@@ -15,13 +15,67 @@
         <action
             android:id="@+id/action_mainFragment_to_weatherFragment"
             app:destination="@id/weatherFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/mealsFragment"
         android:name="by.slavintodron.babyhelper.ui.fragment.MealsFragment"
-        android:label="MealsFragment" />
+        android:label="MealsFragment" >
+        <action
+            android:id="@+id/action_mealsFragment_to_mealsAddFragment"
+            app:destination="@id/mealsAddFragment" >
+            <argument
+                android:name="timer_left"
+                android:defaultValue="0L" />
+            <argument
+                android:name="timer_right"
+                android:defaultValue="0L" />
+        </action>
+        <action
+            android:id="@+id/action_mealsFragment_to_feedingTimerFragment"
+            app:destination="@id/feedingTimerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/weatherFragment"
         android:name="by.slavintodron.babyhelper.ui.fragment.WeatherFragment"
         android:label="WeatherFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="by.slavintodron.babyhelper.ui.fragment.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="by.slavintodron.babyhelper.ui.fragment.MapsFragment"
+        android:label="MapsFragment" />
+    <fragment
+        android:id="@+id/mealsAddFragment"
+        android:name="by.slavintodron.babyhelper.ui.fragment.MealsAddFragment"
+        android:label="MealsAddFragment" >
+        <argument
+            android:name="meal_id"
+            app:argType="integer" />
+        <argument
+            android:name="timer_left"
+            app:argType="long" />
+        <argument
+            android:name="timer_right"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedingTimerFragment"
+        android:name="by.slavintodron.babyhelper.ui.fragment.FeedingTimerFragment"
+        android:label="FeedingTimerFragment" >
+        <action
+            android:id="@+id/action_feedingTimerFragment_to_mealsAddFragment"
+            app:destination="@id/mealsAddFragment" >
+            <argument
+                android:name="meal_id"
+                android:defaultValue="0" />
+        </action>
+    </fragment>
 </navigation>
