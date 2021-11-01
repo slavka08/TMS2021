@@ -35,10 +35,10 @@
                         android:id="@+id/imageViewSun"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:layout_marginStart="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/textViewWindSpeed"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/textViewWeatheDate"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="@dimen/margin_s"
                         tools:srcCompat="@drawable/ic_launcher_background" />
 
                     <TextView
@@ -116,6 +116,16 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp">
 
+                    <ImageView
+                        android:id="@+id/imageMeals"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="@dimen/margin_s"
+                        app:srcCompat="@drawable/ic_food" />
+
                     <TextView
                         android:id="@+id/tvLastMeal"
                         android:layout_width="wrap_content"
@@ -181,6 +191,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp">
+
+                    <ImageView
+                        android:id="@+id/imageSleep"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="@dimen/margin_s"
+                        app:srcCompat="@drawable/ic_sleep" />
 
                     <TextView
                         android:id="@+id/tvLastSleep"
