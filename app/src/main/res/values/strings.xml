@@ -34,7 +34,6 @@
     <string name="left">Left</string>
     <string name="right">Right</string>
     <string name="save">Save</string>
-    <string name="cancel">Cancel</string>
     <string name="current_weather"><u>Current weather</u></string>
     <string name="last_meal"><u>Last Meal</u></string>
     <string name="tap_for_more_info">Tap for more info</string>
@@ -59,4 +58,7 @@
     <string name="meals">MEALS</string>
     <string name="cancel">Cancel</string>
     <string name="ok">Ok</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
 </resources>

@@ -1,5 +1,7 @@
 package by.slavintodron.babyhelper.ui.fragment
 
+import android.app.PendingIntent
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +10,21 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import by.slavintodron.babyhelper.BabyMealsAppWidget
 import by.slavintodron.babyhelper.databinding.FragmentMealsBinding
 import by.slavintodron.babyhelper.entity.MealEntity
+import by.slavintodron.babyhelper.ui.MainActivity
+import by.slavintodron.babyhelper.ui.MainActivity.Companion.UPDATE_WIDGET
+import by.slavintodron.babyhelper.ui.MainActivity.Companion.WIDGET_DATE
+import by.slavintodron.babyhelper.ui.MainActivity.Companion.WIDGET_TYPE_MEAL
+import by.slavintodron.babyhelper.ui.MainActivity.Companion.WIDGET_VOLUME
 import by.slavintodron.babyhelper.ui.adapter.MealsAdapter
 import by.slavintodron.babyhelper.ui.dialogs.ChooseDialog
 import by.slavintodron.babyhelper.ui.dialogs.ChooseDialogListener
 import by.slavintodron.babyhelper.ui.viewModel.MealsViewModel
 import by.slavintodron.babyhelper.utils.ChartUtils
 import by.slavintodron.babyhelper.utils.convertLongToDate
+import by.slavintodron.babyhelper.utils.visibleOrGone
 import java.util.*
 
 class MealsFragment : Fragment() {
@@ -44,6 +53,7 @@ class MealsFragment : Fragment() {
         val l = list.map { it.meal.timerLeft }.sum()
         val r = list.map { it.meal.timerRight }.sum()
         ChartUtils.setChartDataCalories(binding.chart, l.toFloat(), r.toFloat(), requireContext())
+        binding.DayInfoMeals.visibleOrGone((l > 0 || r > 0))
     }
 
     private fun setOnClickListeners() {

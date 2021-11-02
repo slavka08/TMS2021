@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorAccent">@color/primary</color>
+    <color name="colorAccentFaded">@color/primary_dark</color>
     <color name="primary">#607D8B</color>
     <color name="primary_dark">#455A64</color>
     <color name="primary_light">#CFD8DC</color>
@@ -8,7 +10,7 @@
     <color name="secondary_text">#757575</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
-
+    <color name="dirtyWhite">#F7F7F7</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -22,4 +24,9 @@
     <color name="light_gray_info">#E6E6E6</color>
     <color name="dialogBg">#E2E2E6</color>
     <color name="green">#A5D6A7</color>
+    <color name="paperBackground">@color/dirtyWhite</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
 </resources>

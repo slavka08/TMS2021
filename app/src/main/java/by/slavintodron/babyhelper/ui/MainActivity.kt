@@ -37,8 +37,14 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView, fragment)
                     .commit()
-            // navHostFragment.navController.navigate(R.id.action_mealsFragment_to_mealsAddFragment, bundle)
             }
         }
+    }
+
+    companion object {
+        const val UPDATE_WIDGET = "updatewidget"
+        const val WIDGET_DATE = "widgetDate"
+        const val WIDGET_VOLUME = "widgetwolume"
+        const val WIDGET_TYPE_MEAL = "widgettypemeal"
     }
 }

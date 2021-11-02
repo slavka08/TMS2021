@@ -26,8 +26,12 @@ class EditMealsViewModel @Inject constructor(
     var meals = MutableLiveData<List<MealEntity>>()
         private set
 
-    fun insertDB(meal: MealEntity) {
-        dbRepository.insertMeal(meal)
+    fun setMeal(meal: MealEntity) {
+        mealData.value = meal
+    }
+
+    fun insertDB() {
+        mealData.value?.let { dbRepository.insertMeal(it) }
     }
 
     fun getMeal(id: Int) {

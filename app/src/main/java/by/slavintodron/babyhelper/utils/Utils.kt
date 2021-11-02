@@ -1,5 +1,6 @@
 package by.slavintodron.babyhelper.utils
 
+import android.view.View
 import by.slavintodron.babyhelper.service.FeedingService.Companion.START_TIME
 import java.text.SimpleDateFormat
 import java.util.*
@@ -49,5 +50,9 @@ fun convertLongToTime(time: Long): String {
     val date = Date(time)
     val format = SimpleDateFormat("HH:mm")
     return format.format(date)
+}
+
+fun View.visibleOrGone(visible: Boolean) {
+    visibility = if (visible) View.VISIBLE else View.GONE
 }
 
