@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="MainStyle" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_marginStart">14dp</item>
         <item name="android:layout_marginEnd">14dp</item>
@@ -46,4 +47,16 @@
         <item name="cardElevation">10dp</item>
         <item name="cardCornerRadius">@dimen/def_corner_radius</item>
     </style>
+
+    <style name="Widget.BabyHelper.AppWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:background">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="Widget.BabyHelper.AppWidget.InnerView" parent="android:Widget">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+
 </resources>

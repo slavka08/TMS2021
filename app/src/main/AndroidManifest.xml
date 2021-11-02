@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="by.slavintodron.babyhelper">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
     <application
         android:name=".app.BabyHelperApp"
         android:allowBackup="true"
@@ -12,6 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BabyHelper">
+        <receiver
+            android:name=".BabyMealsAppWidget"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/baby_meals_app_widget_info" />
+        </receiver>
+
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
@@ -21,9 +34,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAy9HcvCI7HTrOH5xtLWXQj9_ADrdyWogA" />
+
         <service
             android:name=".service.FeedingService"
             android:permission="android.permission.FOREGROUND_SERVICE" />
