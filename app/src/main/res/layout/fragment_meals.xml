@@ -59,7 +59,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/dateSelector">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/textViewRightSum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/time_right"
@@ -96,7 +96,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/textViewLeftSum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/time_left"

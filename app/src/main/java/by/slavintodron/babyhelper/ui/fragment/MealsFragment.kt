@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.slavintodron.babyhelper.BabyMealsAppWidget
+import by.slavintodron.babyhelper.R
 import by.slavintodron.babyhelper.databinding.FragmentMealsBinding
 import by.slavintodron.babyhelper.entity.MealEntity
 import by.slavintodron.babyhelper.ui.MainActivity
@@ -24,6 +25,7 @@ import by.slavintodron.babyhelper.ui.dialogs.ChooseDialogListener
 import by.slavintodron.babyhelper.ui.viewModel.MealsViewModel
 import by.slavintodron.babyhelper.utils.ChartUtils
 import by.slavintodron.babyhelper.utils.convertLongToDate
+import by.slavintodron.babyhelper.utils.displayTime
 import by.slavintodron.babyhelper.utils.visibleOrGone
 import java.util.*
 
@@ -52,6 +54,8 @@ class MealsFragment : Fragment() {
     private fun calcBreastFeed(list: List<MealEntity>) {
         val l = list.map { it.meal.timerLeft }.sum()
         val r = list.map { it.meal.timerRight }.sum()
+        binding.textViewRightSum.text = String.format("%s %s", getString(R.string.right), r.displayTime().dropLast(3))
+        binding.textViewLeftSum.text = String.format("%s %s", getString(R.string.left), l.displayTime().dropLast(3))
         ChartUtils.setChartDataCalories(binding.chart, l.toFloat(), r.toFloat(), requireContext())
         binding.DayInfoMeals.visibleOrGone((l > 0 || r > 0))
     }
