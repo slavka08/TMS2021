@@ -19,6 +19,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="ButtonsOnCancel">
+        <item name="android:layout_margin">@dimen/margin_s</item>
+    </style>
+
     <style name="DialogTitle">
         <item name="android:textSize">@dimen/text_24</item>
         <item name="android:textColor">@color/black_text_options</item>
