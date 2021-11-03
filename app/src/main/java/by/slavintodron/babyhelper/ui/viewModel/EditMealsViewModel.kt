@@ -44,6 +44,11 @@ class EditMealsViewModel @Inject constructor(
         )
     }
 
+    fun clear() {
+        timerL = 0
+        timerR = 0
+    }
+
     fun getAllMeals() {
         disposable.add(
             dbRepository.getAllMeals().take(1)

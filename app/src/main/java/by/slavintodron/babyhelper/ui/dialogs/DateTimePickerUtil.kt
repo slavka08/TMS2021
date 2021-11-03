@@ -77,9 +77,8 @@ class DateTimePickerUtil : DialogFragment() {
                 calendar.get(GregorianCalendar.DAY_OF_MONTH),
                 null
             )
-
-            binding.timePicker.minute = calendar.get(GregorianCalendar.MINUTE)
-            binding.timePicker.hour = calendar.get(GregorianCalendar.HOUR_OF_DAY)
+            binding.timePicker.minute = calendar.get(GregorianCalendar.SECOND)
+            binding.timePicker.hour = calendar.get(GregorianCalendar.MINUTE)
         }
     }
 
@@ -87,10 +86,13 @@ class DateTimePickerUtil : DialogFragment() {
         binding.buttonOk.setOnClickListener {
             val calendar = GregorianCalendar.getInstance()
             val today = calendar.time
+            val tz = TimeZone.getTimeZone("UTC")
+            calendar.timeZone = tz
             calendar.set(
                 binding.datePicker.year,
                 binding.datePicker.month,
                 binding.datePicker.dayOfMonth,
+                0,
                 binding.timePicker.hour,
                 binding.timePicker.minute
             )

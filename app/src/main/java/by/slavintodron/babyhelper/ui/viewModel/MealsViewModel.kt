@@ -12,6 +12,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
@@ -43,6 +44,14 @@ class MealsViewModel @Inject constructor(
     }
 
     fun getMeals() {
+        val date = Date(_calendar.toDayOnlyDate())
+        val format = SimpleDateFormat("EEEE, MMM dd, HH:mm:ss")//("yyyy.MM.dd")
+        val x =  format.format(date)
+        val dateq = Date(1635724800001)
+        val formatq = SimpleDateFormat("EEEE, MMM dd, HH:mm:ss")//("yyyy.MM.dd")
+        val q =  format.format(date)
+
+
         disposable.add(
             dbRepository.getMealsByDate(_calendar.toDayOnlyDate())
                 .subscribeOn(Schedulers.io())

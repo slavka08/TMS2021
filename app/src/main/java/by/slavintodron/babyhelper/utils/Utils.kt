@@ -37,6 +37,7 @@ fun GregorianCalendar.toDayOnlyDate(): Long {
     this.set(Calendar.MINUTE, 0)
     this.set(Calendar.SECOND, 0)
     this.set(Calendar.MILLISECOND, 1)
+    this.set(Calendar.AM_PM, 0)
     return this.timeInMillis
 }
 

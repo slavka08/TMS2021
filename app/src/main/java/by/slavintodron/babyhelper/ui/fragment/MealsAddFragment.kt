@@ -41,7 +41,7 @@ class MealsAddFragment : Fragment() {
         val adapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, MealType.values())
         adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
         binding.spinnerMealType.adapter = adapter
-
+        viewModel.clear()
         val adapterUnits = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, MeasureUnits.values())
         adapterUnits.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
         binding.spinnerMealUnit.adapter = adapterUnits
@@ -54,9 +54,6 @@ class MealsAddFragment : Fragment() {
                     viewModel.timerL = args.timerLeft
                     viewModel.timerR = args.timerRight
                     binding.spinnerMealUnit.setSelection(4)
-
-                    binding.timerR.setText(args.timerRight.displayTime().dropLast(3))
-                    binding.timerL.setText(args.timerLeft.displayTime().dropLast(3))
                     binding.volumeLayout.visibility = View.GONE
                 } else {
                     binding.volumeLayout.visibility = View.VISIBLE
@@ -66,6 +63,8 @@ class MealsAddFragment : Fragment() {
             }
             else -> loadMealForEdit(mealId)
         }
+        binding.timerR.setText(viewModel.timerL.displayTime().dropLast(3))
+        binding.timerL.setText(viewModel.timerR.displayTime().dropLast(3))
         initObservers()
         setOnClickListeners()
     }
@@ -108,15 +107,14 @@ class MealsAddFragment : Fragment() {
             NavHostFragment.findNavController(this).popBackStack()
         }
         binding.timerL.setOnClickListener {
-            DateTimePickerUtil.newInstance(canSelectFutureDate = false, dateTime = Date(viewModel.timerL)) {
+            DateTimePickerUtil.newInstance(canSelectFutureDate = false, dateTime = Date(viewModel.timerL), showDatePicker = false) {
                 viewModel.timerL = it
                 binding.timerL.setText(viewModel.timerL.displayTime().dropLast(3))
             }.show(childFragmentManager, DateTimePickerUtil.TAG)
-
         }
 
         binding.timerR.setOnClickListener {
-            DateTimePickerUtil.newInstance(canSelectFutureDate = false, dateTime = Date(viewModel.timerR)) {
+            DateTimePickerUtil.newInstance(canSelectFutureDate = false, dateTime = Date(viewModel.timerR),  showDatePicker = false) {
                 viewModel.timerR = it
                 binding.timerR.setText(viewModel.timerR.displayTime().dropLast(3))
             }.show(childFragmentManager, DateTimePickerUtil.TAG)
